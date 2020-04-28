@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+     
+<head>
+  <title>Formations</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet"href="style.css">
+</head>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="#"><i class="fa fa-graduation-cap" style="font-size:40px;color:white;"></i>Formations</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto justify-content-end"  >
+      <li class="nav-item active">
+        <a class="nav-link"  href="/"><i class="fa fa-home" style="font-size:20px"></i>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a  class="nav-link" href="admin/index"><i class="fa fa-user fa-lg" style="font-size:20px"></i>Espace Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="user/index"><i class="fa fa-group" style="font-size:20px"></i>Espace Etudiant</a>
+      </li>
+    
+    </ul>
+        <div class="signout">
+      <li class="nav-item" >
+        <a  style="float: right" class="nav-link" th:href="@{/logout}" > <i class="fa fa-sign-out"  style="font-size:20px"></i>Déconnexion </a>
+      </li>
+    </div>
+    <!--  <form class="form-inline my-2 my-lg-0 ">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+    
+  </div>
+</nav>
+<h1>
+<strong><i class="fa fa-graduation-cap"></i>Listes des formations</strong></h1>
+
+<!-- ============================================== -->	
+<style>
+
+title{
+text-align: left;
+}
+
+
+body{
+background-color:#F8F9FA;
+background-repeat: no-repeat;
+}
+
+h1{
+margin-top: 40px;
+margin-left:20px;
+text-align: left;
+ 
+  font-family: "Lucida Console", Courier, monospace;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+</style>
+<!-- ============================================== -->	
+
+
+
+<body>
+
+
+     <div class="container">
+     <br> <br>
+   
+  <table class="table table-striped">
+    <thead>
+      <tr>
+       <th><strong>ID</strong></th>
+         <th>Semestre</th>
+        <th>Fillière</th>
+	     <th>Formation</th>
+	     <th>Formateur</th>
+	     <th>Salle</th>
+	     <th>Date</th>
+	     <th>Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr th:each ="formation : ${listFormations}">
+              <td th:text="${formation.id}">Identifiant</td>
+               <td th:text="${formation.semestre}">Semestre</td>
+               <td th:text="${formation.filliere}">Fillière</td>
+               <td th:text="${formation.formation}">Formation</td>
+                <td th:text="${formation.formateurs}">Formateur</td>
+                 <td th:text="${formation.salle}">Salle</td>
+                  <td th:text="${formation.date}">Date</td>
+                   <td th:text="${formation.prix}">Prix</td>
+  <td> 
+  &nbsp; &nbsp;
+  <a th:href="@{'/formations-files/showFiles/' + ${formation.id}}">
+<button type="button" class="btn btn-outline-info">Informations</button>
+</a> 
+  &nbsp; &nbsp;
+  <a th:href="@{'/user/inscription'}">
+  <button type="button" class="btn btn-outline-success">Inscription</button>
+  </a>
+  
+  <a th:href="@{'/user/evaluations/' + ${formation.id}}">
+  <button type="button" class="btn btn-outline-secondary">Evaluations</button>
+  </a>
+  </td> 
+</tr>
+    </tbody>
+    </table>  
+
+   </body>
+</html>

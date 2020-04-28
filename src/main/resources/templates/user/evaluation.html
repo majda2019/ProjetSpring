@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+     
+<head>
+  <title>Ajouter Formations</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
+ 
+</head>
+<head>
+<style>
+i{
+margin-right: 5px;}
+.rowButton{
+float: right;
+}
+* {
+  box-sizing: border-box;
+
+}
+body{
+background-color:#F8F9FA;
+background-repeat: no-repeat;
+}
+
+h1{
+margin-top: 40px;
+margin-left:20px;
+text-align: center;
+font-family: "Lucida Console", Courier, monospace;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+    font-size: 20px;
+    font-family: "Lucida Console", Courier, monospace;
+
+}
+
+button[type=submit] {
+  
+  border-radius: 8px;
+  cursor: pointer;
+  float: left;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+ background-image:url("../images/wallpaper-light-blue.png");
+  background-color:#D5E8F4;
+  padding: 50px;
+  
+}
+
+.col-25 {
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+
+  
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.fa-arrow-circle-left{
+margin-left: 20px;
+
+}
+</style>
+</head>
+<body>
+<div>
+<h1><strong> <a href="/user/index"><i class="fa fa-arrow-circle-left" style="float:left"></i></a></strong></h1>
+
+<h1><strong><i class="fa fa-graduation-cap"></i>Evaluer la formation</strong></h1>
+</div>
+<br>
+
+
+<div class="container">
+  <form th:action="@{'/user/evaluations/'+${formationId}+'/save'}" th:object="${evaluation}" method="post">
+   
+  <div class="row">
+    <div class="col-25">
+ <label for="Competence">Compétence:</label>
+ </div>
+ <div class="col-75">
+    <select id="Competence" name="Competence">
+      <option value="Très bien">très bien</option>
+      <option value="Bien">bien</option>
+      <option value="Assez bien">Assez bien</option>
+      <option value="Passable">Passable</option>
+      <option value="Null">Null</option>
+    </select>
+    </div>
+    </div>
+   <div class="row">
+    <div class="col-25"> 
+  <label for="espace">Espace de travail:</label>
+  </div>
+  <div class="col-75">
+    <select id="espace" name="espace">
+     <option value="Propre">Propre</option>
+      <option value="Assez Propre">Assez Propre</option>
+      <option value="Passable">Passable</option>
+      <option value="Sale">Sale</option>
+    </select>
+    </div>
+    </div>
+     <!-- <div class="row">
+    <div class="col-25"> 
+  <label for="formation">Formation:</label>
+  </div>
+  <div class="col-75">
+    <select id="formation" name="formation">
+     <option value="Très bien">très bien</option>
+      <option value="Bien">bien</option>
+      <option value="Assez bien">Assez bien</option>
+      <option value="Passable">Passable</option>
+      <option value="Null">Null</option>
+    </select>
+    </div>
+    </div> -->
+      <div class="row">
+    <div class="col-25"> 
+  <label for="Formateur">Formateur:</label>
+  </div>
+  <div class="col-75">
+    <select id="formateur" name="formateur">
+     <option value="Gentil">Gentil</option>
+      <option value="Pas Mal">Pas Mal</option>
+      <option value="Nerveux">Nerveux</option>
+     
+    </select>
+    </div>
+    </div>
+     <div class="row">
+    <div class="col-25"> 
+  <label for="note">Note Globale:</label>
+  </div>
+  <div class="col-75">
+    <select id="note" name="note">
+     <option value="entre 16 et 20">entre 16 et 20</option>
+      <option value="entre 10 et 15">entre 10 et 15</option>
+      <option value="entre 10 et 14">entre 10 et 14</option>
+     
+    </select>
+    </div>
+    </div>
+ 
+<br>
+  <div class="rowButton">
+    <button type="submit" class="btn btn-primary" > <i class="fa fa-save"></i>Evaluer</button>
+  </div>
+  <br>
+  </form>
+<!-- 
+===============================================================
+ -->  
+  
+  
+  
+  
+  
+</div>
+<br><br><br>
+</body>
+</html>

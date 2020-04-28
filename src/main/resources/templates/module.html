@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+     
+<head>
+  <title>Modules</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet"href="style.css">
+</head>
+<body>
+
+<div class="container">
+   <table class="table">
+  <caption>Liste des modules</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Liste des modules</th>
+      <th scope="col">Cliquer </th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Compilation</td>
+        <td><a th:href="@{'/admin/formations/formation/' + ${formation.formation}}">cliquer</a>
+      
+      
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Spring</td>
+         <td><a href="#"></a>cliquer ici </td>
+     
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Android</td>
+        <td><a href="#"></a>cliquer ici </td>
+      
+    </tr>
+     <tr>
+      <th scope="row">4</th>
+      <td>Machine Learning</td>
+        <td><a href="#"></a>cliquer ici </td>
+       
+      
+    </tr>
+     <tr>
+      <th scope="row">5</th>
+      <td>Génie logiciel</td> 
+        <td><a href="#"></a>cliquer ici </td>
+      
+    </tr>
+     <tr>
+      <th scope="row">6</th>
+      <td>IHM</td>
+       <td><a href="#"></a>cliquer ici </td>
+      
+    </tr>
+  </tbody>
+</table>
+    
+      
+</div>
+</body>
+</html>

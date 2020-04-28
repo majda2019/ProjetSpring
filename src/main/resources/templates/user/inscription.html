@@ -1,0 +1,172 @@
+ <!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+     
+<head>
+  <title>Formations</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ 
+</head>
+<head>
+
+<style>
+.rowButton{
+float: right;
+}
+* {
+  box-sizing: border-box;
+
+}
+body{
+background-color:#F8F9FA;
+background-repeat: no-repeat;
+}
+
+h1{
+margin-top: 40px;
+margin-left:20px;
+text-align: center;
+font-family: "Lucida Console", Courier, monospace;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+    font-size: 20px;
+    font-family: "Lucida Console", Courier, monospace;
+
+}
+
+button[type=submit] {
+  
+  border-radius: 8px;
+  cursor: pointer;
+  float: left;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-image:url("../images/wallpaper-light-blue.png");
+  
+  background-color:#D5E8F4;
+  padding: 50px;
+  
+}
+
+.col-25 {
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+
+  
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div>
+<h1><strong> <a href="/user/index"><i class="fa fa-arrow-circle-left" style="float:left"></i></a></strong></h1>
+
+
+<h1><strong><i class="fa fa-graduation-cap"></i>Inscription à la formation</strong></h1>
+<br>
+</div>
+
+<div class="container">
+  <form th:action="@{/user/inscription/send}" th:object="${contact}" method="post">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Nom Complet:</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="name"  th:field="*{name}"  required="required" placeholder="Your name..">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Tel:</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="phone"  th:field="*{phone}" required="required" placeholder="Your phone..">
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-25">
+      <label for="fname">Email:</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="email"  th:field="*{email}" required="required" placeholder="Your email..">
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-25">
+      <label for="fname">Adresse:</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="adress" th:field="*{adress}"  placeholder="Your adress..">
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-25">
+      <label for="fname">Sujet:</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="subject" th:field="*{subject}" required="required" placeholder="Your subject..">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-25">
+      <label for="subject">Commentaire:</label>
+    </div>
+    <div class="col-75">
+      <textarea id="subject" name="content" th:field="*{content}" placeholder="Write something.." style="height:200px"></textarea>
+    </div>
+  </div>
+ <br>
+  <div class="rowButton">
+    <button type="submit" class="btn btn-primary" >Envoyer</button>
+  </div>
+  </form>
+</div>
+
+</body>
+</html>
